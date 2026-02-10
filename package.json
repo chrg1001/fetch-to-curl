@@ -2,7 +2,17 @@
   "name": "fetch-to-curl",
   "version": "0.6.0",
   "description": "Convert fetch HTTP request to curl",
-  "main": "lib/bundle.js",
+  "main": "lib/bundle.cjs",
+  "module": "lib/bundle.mjs",
+  "browser": "lib/bundle.umd.js",
+  "exports": {
+    ".": {
+      "types": "./types/main.d.ts",
+      "import": "./lib/bundle.mjs",
+      "require": "./lib/bundle.cjs",
+      "default": "./lib/bundle.mjs"
+    }
+  },
   "author": "Leonard Krause",
   "license": "MIT",
   "scripts": {
@@ -10,7 +20,7 @@
     "test": "jest"
   },
   "files": [
-    "lib/bundle.js",
+    "lib",
     "types"
   ],
   "types": "types/main.d.ts",

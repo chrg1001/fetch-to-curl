@@ -8,15 +8,12 @@
         color: red;
       }
     </style>
-    <script>
-      var exports = {};
-    </script>
     <script
-      src="https://unpkg.com/fetch-to-curl@0.6.0/lib/bundle.js"
+      src="https://unpkg.com/fetch-to-curl/lib/bundle.umd.js"
       crossorigin
     ></script>
     <script>
-      const { fetchToCurl } = exports;
+      const { fetchToCurl: ftc } = fetchToCurl;
       const url = "https://jsonplaceholder.typicode.com/posts/1";
       const options = {
         mode: "no-cors",
@@ -26,8 +23,8 @@
         method: "get",
       };
 
-      //Log yopur request
-      console.log(fetchToCurl(url, options));
+      //Log your request
+      console.log(ftc(url, options));
       //Do your request
       fetch(url, options);
     </script>
@@ -46,8 +43,9 @@
       for general usage information)
     </p>
     <p>
-      Note the creation of the exports object in line 11 of this html file,
-      which mitigates the missing module support of the browser.
+      The UMD bundle exposes a global <code>fetchToCurl</code> object with
+      named exports. Access the main function via
+      <code>fetchToCurl.fetchToCurl</code> or <code>fetchToCurl.default</code>.
     </p>
     <h2>How to use this playground</h2>
     <li>Check your browser console (usually opens with F12)</li>
